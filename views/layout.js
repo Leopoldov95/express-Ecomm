@@ -12,13 +12,22 @@ module.exports = ({ content }) => {
     <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet"href="/css/all.css" />
     <link rel="stylesheet"href="/css/utilities.css" />
+    <link rel="stylesheet"href="/css/media.css" />
   </head>
   <body>
     <nav class="navbar">
+      <div class="mobile-nav">
+      <div>
+      <i class="fas fa-bicycle"></i><span >Rydel's Cycles</span></div>
+      <a href="#" class="icon" onclick="toggleNav()">
+      <i class="fa fa-bars"></i>
+    </a>
+      </div>
+      <div id="myLinks">
       <div class="navbar-left">
         <ul>
-          <i class="fas fa-bicycle"></i
-          ><span>Rydel's Cycles</span>
+          <i class="fas fa-bicycle  home-brand"></i
+          ><span class="home-brand">Rydel's Cycles</span>
           <a href="/" class="navbar-link"><li>Home</li></a>
           <a href="/bikes" class="navbar-link"><li>Bikes</li></a>
           <a href="/contact" class="navbar-link"><li>Contact</li></a>
@@ -35,13 +44,24 @@ module.exports = ({ content }) => {
       </div>
 
       <div class="navbar-right">
-        <a href="/admin/products"><i class="fas fa-user-shield"></i></a>
-        <a href="/login"><i class="far fa-user"></i></a>
-        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="/admin/products"><i class="fas fa-user-shield"></i><span class='mobile-title'>Admin Panel</span></a>
+        <a href="/login"><i class="far fa-user"></i><span class='mobile-title'>Login</span></a>
+        <a href="/cart"><i class="fas fa-shopping-cart"></i><span class='mobile-title'>Cart</span></a>
+      </div>
       </div>
     </nav>
     ${content}
   </body>
+  <script>
+  function toggleNav(){
+    var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+  }
+  </script>
 </html>
       `;
 };

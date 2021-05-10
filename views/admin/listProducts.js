@@ -35,7 +35,7 @@ module.exports = (products) => {
       <div class="admin-products-container">
       <div class="admin-products">
         <h1 class="admin-subtitle">Products</h1>
-        <a href="/admin/products/new" class="submit-btn">New Product</a>
+        <a href="/admin/products/new" class="new-btn"><i class="fas fa-plus"></i>New Product</a>
       </div>
       <table class="admin-table">
         <thead>

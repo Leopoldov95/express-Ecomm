@@ -1,6 +1,85 @@
 /* TABLET VIEW */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .navbar .navbar-mid {
     display: none;
+  }
+
+  #home h1 {
+    font-size: 1.6rem;
+  }
+}
+/* MOBILE DEVICES */
+@media screen and (max-width: 480px) {
+  #home {
+    padding: 1rem;
+  }
+
+  #home h1 {
+    font-size: 1.4rem;
+  }
+
+  /* hamburger menu  */
+  .mobile-title {
+    display: block;
+  }
+  .mobile-nav {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* Links */
+  #myLinks {
+    display: none;
+    overflow-y: auto;
+    z-index: 100;
+    width: 100%;
+    position: absolute;
+    top: 3.6rem;
+    left: 0;
+  }
+  #myLinks .navbar-left ul {
+    flex-direction: column;
+  }
+  #myLinks .navbar-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #myLinks .navbar-right a,
+  #myLinks .navbar-left ul a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    background-color: black;
+    width: 100%;
+    justify-content: left;
+  }
+
+  .home-brand {
+    display: none;
+  }
+
+  .mobile-nav a.icon {
+    background: #333;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .mobile-nav .icon:hover {
+    opacity: 0.8;
+  }
+
+  .active {
+    background-color: #04aa6d;
+    color: white;
   }
 }

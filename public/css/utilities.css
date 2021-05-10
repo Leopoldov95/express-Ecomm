@@ -46,6 +46,17 @@ button:hover {
   color: white;
   padding: 1rem 1.4rem;
 }
+.new-btn {
+  border: none;
+  background-color: rgb(59, 192, 179);
+  color: white;
+  padding: 10px 1rem;
+  border-radius: 5px;
+}
+
+.new-btn i {
+  padding-right: 8px;
+}
 
 .submit-btn i {
   margin-right: 6px;
@@ -76,4 +87,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+}
+
+/* HAMBURGER MENU DEFAULT  */
+.mobile-nav {
+  display: none;
+}
+
+.mobile-title {
+  display: none;
 }

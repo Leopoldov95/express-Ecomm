@@ -12,6 +12,7 @@ module.exports = ({ content }) => {
     <link rel="stylesheet" href="/css/utilities.css" />
     <link rel="stylesheet" href="/css/admin.css" />
     <link rel="stylesheet" href="/css/all.css" />
+    <link rel="stylesheet" href="/css/media.css" />
   </head>
   <body class="admin">
     <header>
