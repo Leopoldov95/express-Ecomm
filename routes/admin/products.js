@@ -11,6 +11,7 @@ const {
   getAllItems,
   addProduct,
   getSingleItem,
+  updateItem,
 } = require("../../controllers/main");
 
 /* MULTER CONFIG */
@@ -101,5 +102,18 @@ router.get("/admin/products/:id/edit", requireAuth, async (req, res) => {
 
   res.send(editProductView(product));
 });
-
+// In order to read the req.body data when using Multer, must pass the upload as a middleware
+router.post(
+  "/admin/products/:id/edit",
+  requireAuth,
+  upload.single("image"),
+  async (req, res) => {
+    const item = await updateItem(req.params.id, req.body);
+    //console.log(item.title);
+    res.json({
+      status: 200,
+      message: "POST method for product edit",
+    });
+  }
+);
 module.exports = router;

@@ -31,9 +31,14 @@ const getSingleItem = async (id) => {
   return allItems.find((item) => item.id === id);
 };
 
-const updateItem = async (id) => {
+const updateItem = async (id, body) => {
   const item = await getSingleItem(id);
-  console.log(item.title);
+  item.title = body.title;
+  item.price = body.price;
+  console.log(item.title, item.price);
+  fs.promises.writeFile("products.json", JSON.stringify(data, null, 2));
+  // console.log(item.title);
+  return item;
 };
 
 //const update =
