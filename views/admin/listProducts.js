@@ -50,6 +50,9 @@ module.exports = (products) => {
         ${renderedProducts}
         </tbody>
       </table>
+      <div class='admin-signout' >
+        <a href='/signout'>Sign Out</a>
+      </div>
     </div>
       
       `,

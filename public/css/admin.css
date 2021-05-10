@@ -45,6 +45,13 @@
   color: turquoise;
 }
 
+.admin-signout {
+  margin-top: 4rem;
+}
+.admin-signout a {
+  color: blue;
+}
+
 /* ADMIN EDIT  */
 .admin-products-container {
   margin: 5rem;
