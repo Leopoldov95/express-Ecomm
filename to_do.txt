@@ -1,0 +1,5 @@
+1 - enable user to register and check for duplicate emails
+2 - learn how to display error messages (msg) without crashing
+2 - append registration details to users.json
+3 - allow user to login
+4 - once this has been solved, add user validation
