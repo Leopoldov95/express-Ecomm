@@ -108,12 +108,20 @@ router.post(
   requireAuth,
   upload.single("image"),
   async (req, res) => {
-    const item = await updateItem(req.params.id, req.body);
+    const changes = req.body;
+    if (req.file) {
+      changes.image = req.file.buffer.toString("base64");
+    } else {
+      throw new Error("Please upload a valid image...");
+    }
+    try {
+      await updateItem(req.params.id, changes);
+    } catch (err) {
+      return res.send("Could not fid item...");
+    }
+
     //console.log(item.title);
-    res.json({
-      status: 200,
-      message: "POST method for product edit",
-    });
+    res.redirect("/admin/products");
   }
 );
 module.exports = router;
