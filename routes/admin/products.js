@@ -6,7 +6,7 @@ const path = require("path");
 const adminProductView = require("../../views/admin/listProducts");
 const newProductView = require("../../views/admin/products/new");
 const editProductView = require("../../views/admin/products/edit");
-const { requireAuth } = require("../../controllers/users");
+const { requireAuth } = require("../../controllers/middlewares");
 const {
   getAllItems,
   addProduct,

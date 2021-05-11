@@ -30,6 +30,10 @@ app.use(home);
 app.use(products);
 app.use(auth);
 app.use(adminProducts);
+// handle unkown routes here
+app.get("*", (req, res) => {
+  res.status(404).send("404 NOT FOUND");
+});
 
 app.listen(5000, () => {
   console.log("server is listening at port 5000...");
