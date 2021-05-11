@@ -19,12 +19,17 @@
     font-size: 1.4rem;
   }
 
+  .navbar {
+    position: static;
+  }
+
   .navbar .mobile-nav > div i {
     padding-right: 10px;
   }
 
   /* CONTACT PAGE */
   #contact {
+    margin-top: 1rem;
     padding: 1rem;
   }
 
