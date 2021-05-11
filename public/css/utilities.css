@@ -40,6 +40,12 @@ button:hover {
   font-size: 1.2rem;
 }
 
+.navbar #myLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .submit-btn {
   border: none;
   background-color: var(--nav-color);

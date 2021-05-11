@@ -10,6 +10,7 @@
 }
 /* MOBILE DEVICES */
 @media screen and (max-width: 480px) {
+  /* HOME PAGE */
   #home {
     padding: 1rem;
   }
@@ -18,9 +19,62 @@
     font-size: 1.4rem;
   }
 
+  .navbar .mobile-nav > div i {
+    padding-right: 10px;
+  }
+
+  /* CONTACT PAGE */
+  #contact {
+    padding: 1rem;
+  }
+
+  #contact .contact-form {
+    width: 100%;
+  }
+
+  /* ADMIN NAVBAR */
+  .admin .navbar {
+    padding: 1rem;
+  }
+
+  .admin .navbar > div .navbar-title {
+    font-size: 1rem;
+  }
+
+  /* ADMIN PAGE */
+  .container .admin-products-container {
+    margin: 0;
+    padding: 1rem 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .container .admin-products-container .admin-products {
+    padding: 0 1rem;
+  }
+
+  .container .admin-products-container .admin-signout {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  /* ADMIN SIGNIN */
+  .admin .container .admin-signin {
+    display: block;
+    padding: 1rem;
+    line-height: normal;
+  }
+  .admin .container .admin-signin .field .input {
+    width: 100%;
+  }
+  /* ADMIN EDIT */
+  .admin .container .admin-edit {
+    width: 90%;
+    line-height: normal;
+  }
   /* hamburger menu  */
   .mobile-title {
     display: block;
+    padding-left: 10px;
   }
   .mobile-nav {
     display: block;
@@ -33,7 +87,7 @@
     align-items: center;
   }
   /* Links */
-  #myLinks {
+  .navbar #myLinks {
     display: none;
     overflow-y: auto;
     z-index: 100;
@@ -59,7 +113,12 @@
     display: block;
     background-color: black;
     width: 100%;
-    justify-content: left;
+    float: left;
+  }
+
+  #myLinks .navbar-right a {
+    display: flex;
+    align-items: center;
   }
 
   .home-brand {
