@@ -4,7 +4,7 @@ const layout = require("./adminLayout");
 
 // will need to replace the bottom two product.title with product.id
 
-module.exports = (products) => {
+module.exports = ({ products }) => {
   const renderedProducts = products
     .map((product) => {
       return `

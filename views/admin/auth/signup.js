@@ -6,7 +6,7 @@ ${getError(errors, "email")}
 ${getError(errors, "password")}
 ${getError(errors, "passwordConfirmation")}
 */
-module.exports = () => {
+module.exports = ({ errors }) => {
   return layout({
     content: `
         <div class="admin-signin">
@@ -22,7 +22,7 @@ module.exports = () => {
               type="email"
             />
             <!-- will want to display error message here -->
-            <p class='error-msg'></p>
+            <p class='error-msg'>${handleError(errors, "email")}</p>
           </div>
           <div class="field">
             <label class="label">Password</label>
@@ -34,7 +34,7 @@ module.exports = () => {
               type="password"
             />
             <!-- will want to display error message here -->
-            <p class='error-msg'></p>
+            <p class='error-msg'>${handleError(errors, "password")}</p>
           </div>
           <div class="field">
             <label class="label">Password Confirmation</label>
@@ -46,7 +46,10 @@ module.exports = () => {
               type="password"
             />
             <!-- will want to display error message here -->
-            <p class='error-msg'></p>
+            <p class='error-msg'>${handleError(
+              errors,
+              "passwordConfirmation"
+            )}</p>
           </div>
           <button class="submit-btn">
             <i class="fas fa-user-shield"></i>Create Account

@@ -9,7 +9,8 @@ const products = await productsRepo.getAll();
 router.get("/bikes", async (req, res) => {
   const products = await getAllItems();
   // console.log(getAllItems());
-  res.send(viewProducts(products));
+  res.send(viewProducts({ products }));
+  // so when using bracket notation for functions, the argument needs to be wrapped in {} and the name of the argument needs to match whatever is being passed in that instance
 });
 
 module.exports = router;

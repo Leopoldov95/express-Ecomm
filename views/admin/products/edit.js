@@ -1,5 +1,5 @@
 const layout = require("../adminLayout");
-module.exports = (product) => {
+module.exports = ({ product, errors }) => {
   return layout({
     content: `
     <div class="admin-edit">
@@ -13,6 +13,7 @@ module.exports = (product) => {
               class="input"
               name="title"
             />
+            <p class='error-msg'>${handleError(errors, "title")}</p>
           </div>
 
           <div class="field">
@@ -22,6 +23,7 @@ module.exports = (product) => {
               class="input"
               name="price"
             />
+            <p class='error-msg'>${handleError(errors, "price")}</p>
           </div>
 
           <div class="field">

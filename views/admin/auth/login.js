@@ -1,11 +1,13 @@
 const layout = require("../adminLayout");
+const { handleError } = require("../../error");
 //const { getError } = require("../../helpers");
 //{errors}
 /* 
 ${getError(errors, "email")}
 ${getError(errors, "password")}
 */
-module.exports = () => {
+// again recall that unless an argument with the name {error} is passed, nothing will be executed
+module.exports = ({ errors }) => {
   return layout({
     content: `
         <div class="admin-signin">
@@ -21,7 +23,7 @@ module.exports = () => {
               type="email"
             />
             <!-- will want to display error message here -->
-            <p class='error-msg'></p>
+            <p class='error-msg'>${handleError(errors, "email")}</p>
           </div>
           <div class="field">
             <label class="label">Password</label>
@@ -33,7 +35,7 @@ module.exports = () => {
               type="password"
             />
             <!-- will want to display error message here -->
-            <p class='error-msg'></p>
+            <p class='error-msg'>${handleError(errors, "password")}</p>
           </div>
           <button class="submit-btn">
             <i class="fas fa-user-shield"></i>Login

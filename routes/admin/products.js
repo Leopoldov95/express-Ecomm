@@ -58,7 +58,7 @@ const checkFileType = (file, cb) => {
 
 router.get("/admin/products", requireAuth, async (req, res) => {
   const products = await getAllItems();
-  res.send(adminProductView(products));
+  res.send(adminProductView({ products }));
 });
 
 router.get("/admin/products/new", requireAuth, (req, res) => {
@@ -100,7 +100,7 @@ router.get("/admin/products/:id/edit", requireAuth, async (req, res) => {
     return res.send("Product not found");
   }
 
-  res.send(editProductView(product));
+  res.send(editProductView({ product }));
 });
 // In order to read the req.body data when using Multer, must pass the upload as a middleware
 router.post(
