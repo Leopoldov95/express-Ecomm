@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
+const { handleErrors } = require("../../controllers/middlewares");
 const adminProductView = require("../../views/admin/listProducts");
 const newProductView = require("../../views/admin/products/new");
 const editProductView = require("../../views/admin/products/edit");
@@ -13,6 +14,7 @@ const {
   getSingleItem,
   updateItem,
 } = require("../../controllers/main");
+const { requireTitle, requirePrice } = require("./validation");
 
 /* MULTER CONFIG */
 /* file.fieldname + "-" + Date.now() + path.extname */
@@ -36,7 +38,7 @@ const upload = multer({
 /* const upload = multer({
   storage: storage,
 
-}).single("image"); // the name for the file uload input field */
+}).single("image"); // the name for the file upload input field */
 
 // check file type
 const checkFileType = (file, cb) => {
@@ -68,7 +70,9 @@ router.get("/admin/products/new", requireAuth, (req, res) => {
 router.post(
   "/admin/products/new",
   requireAuth,
+  [requireTitle, requirePrice],
   upload.single("image"),
+  handleErrors(newProductView),
   async (req, res) => {
     //res.send("you have created a new item");
     const image = req.file.buffer.toString("base64"); // 'base64' can safely show the img in a string format

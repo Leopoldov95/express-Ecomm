@@ -1,4 +1,6 @@
 const layout = require("../adminLayout");
+const { handleError } = require("../../error");
+
 module.exports = ({ product, errors }) => {
   return layout({
     content: `
@@ -33,15 +35,7 @@ module.exports = ({ product, errors }) => {
           <br />
           <button class="submit-btn">Submit</button>
         </form>
-        
- 
-        
       </div>
     `,
   });
 };
-/* 
- <p class="help is-danger">${getError(errors, "title")}</p>
- <p class="help is-danger">${getError(errors, "price")}</p>
-
-*/

@@ -1,11 +1,6 @@
 const layout = require("../adminLayout");
-//const { getError } = require("../../helpers");
-//{ req, errors }
-/* 
-${getError(errors, "email")}
-${getError(errors, "password")}
-${getError(errors, "passwordConfirmation")}
-*/
+const { handleError } = require("../../error");
+
 module.exports = ({ errors }) => {
   return layout({
     content: `

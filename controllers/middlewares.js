@@ -1,4 +1,4 @@
-const { validationResults } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 // needed in orer to check if a user is currently logged in
 const requireAuth = (req, res, next) => {
@@ -12,15 +12,16 @@ const requireAuth = (req, res, next) => {
 const handleErrors = (template, cb) => {
   return async (req, res, next) => {
     // so errors will check the validation of req
-    const errors = validationResults(req);
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
       let data = {}; // so if no errors are present, this will initiate an empty object, in which our successful data will be passed onto.
       if (cb) {
-        data = await res.send(template({ errors, ...data }));
+        data = await cd(req);
       }
-      next();
+      return res.send(template({ errors, ...data }));
     }
+    next();
   };
 };
 
-module.exports = { requireAuth };
+module.exports = { requireAuth, handleErrors };

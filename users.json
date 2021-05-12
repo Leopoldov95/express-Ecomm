@@ -1,17 +1,1 @@
-[
-  {
-    "email": "admin@test.com",
-    "password": "admin",
-    "id": "3bf7d1e8-6ab5-4bf1-92c5-f2502f4b96ee"
-  },
-  {
-    "email": "user@test.com",
-    "password": "admin",
-    "id": "b7ab3b2c-d868-4887-9a67-1ab8cb575ad0"
-  },
-  {
-    "email": "test@test.com",
-    "password": "admin",
-    "id": "2a64ddda-76d7-4e66-8781-d39b1452b722"
-  }
-]
+[]

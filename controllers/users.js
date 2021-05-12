@@ -17,12 +17,18 @@ const createUser = async (user) => {
   const salt = crypto.randomBytes(8).toString("hex");
   const buffer = await scrypt(user.password, salt, 64);
   //const records = await getAllUsers();
-  const newUser = { ...user, password: `${buffer.toString("hex")}.${salt}` };
+  const newUser = {
+    email: user.email,
+    password: `${buffer.toString("hex")}.${salt}`,
+    id: user.id,
+  };
   // data.push({ email: user.email, password: user.password, id: newId }); can be replaced with:
   data.push(newUser);
   fs.promises.writeFile("users.json", JSON.stringify(data, null, 2));
   console.log("user has been uploaded");
   // res.redirect here!
+
+  return newUser;
 };
 
 const getAllUsers = async () => {
@@ -40,6 +46,11 @@ const getSingleUser = async (email) => {
 
 const comparePasswords = async (saved, supplied) => {
   const [hashed, salt] = saved.split("."); // destructuring and saving to [hashed and salt]
+  const hashedSuppliedBuffer = await scrypt(supplied, salt, 64);
+
+  return hashed === hashedSuppliedBuffer.toString("hex");
 };
 
-module.exports = { createUser, getSingleUser };
+module.exports = { createUser, getSingleUser, comparePasswords };
+
+// On password validation. SO the reason why salting the password works even thought the hash is still there and the "." seperates the hash and the salt, the salt adds extra ancryption so even if hackers know the hashed password, the salted part of the password will be nearly impossible to figure out

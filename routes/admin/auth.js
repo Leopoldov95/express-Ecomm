@@ -1,25 +1,33 @@
 const express = require("express");
 const router = express.Router();
+const { handleErrors } = require("../../controllers/middlewares");
 const viewLogin = require("../../views/admin/auth/login");
 const viewSignup = require("../../views/admin/auth/signup");
 const { createUser, getSingleUser } = require("../../controllers/users");
-const { comparePassword } = require("./validators");
+//const { comparePassword } = require("./validators");
 //testing
-const { body, validationResult } = require("express-validator");
+//const { body, validationResult } = require("express-validator"); => don't need this as validation middleware is handling the express validation
+const {
+  checkEmailExists,
+  requireEmail,
+  requirePassword,
+  requirePasswordConfirmation,
+  requireEmailExists,
+  requireValidPasswordForUser,
+} = require("./validation");
 router.post(
   "/login",
-  body("email").isEmail().normalizeEmail(),
-  body("password").isLength({ min: 4 }),
+  [requireEmailExists, requireValidPasswordForUser],
+  handleErrors(viewLogin),
   async (req, res) => {
-    const errors = validationResult(req);
+    /*  const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
         success: false,
         errors: errors.array(),
       });
-    }
-    // test password comparison
-    comparePassword(req.body);
+    } => so this error function is being handled by the helper error function */
+
     const user = await getSingleUser(req.body.email);
     req.session.userId = user.id;
     //console.log(req.body);
@@ -27,20 +35,30 @@ router.post(
   }
 );
 router.get("/login", (req, res) => {
-  res.send(viewLogin());
+  res.send(viewLogin({})); //need to pass an empty object to satisfy the { errors } argument
 });
 router.get("/signup", (req, res) => {
-  res.send(viewSignup());
+  res.send(viewSignup({}));
 });
 
-router.post("/signup", async (req, res) => {
-  // post the req.body to users.json
-  //console.log(req.body);
-  createUser(req.body);
-  const user = await getSingleUser(req.body.email);
-  req.session.userId = user.id;
-  res.redirect("/admin/products");
-});
+router.post(
+  "/signup",
+  [
+    requireEmail,
+    checkEmailExists,
+    requirePassword,
+    requirePasswordConfirmation,
+  ],
+  handleErrors(viewSignup),
+  async (req, res) => {
+    // post the req.body to users.json
+    //console.log(req.body);
+    const user = await createUser(req.body);
+    //const user = await getSingleUser(req.body.email);
+    req.session.userId = user.id;
+    res.redirect("/admin/products");
+  }
+);
 
 router.get("/signout", (req, res) => {
   req.session = null; // will take the current sessoin and forget it

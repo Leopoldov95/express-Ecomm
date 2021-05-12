@@ -1,5 +1,5 @@
 const { check } = require("express-validator");
-const { getSingleUser } = require("../../controllers/users");
+const { getSingleUser, comparePasswords } = require("../../controllers/users");
 
 // Having the validation code here to prevent the auth.js file from bein too crowded.
 
@@ -47,24 +47,34 @@ module.exports = {
     .isEmail()
     .withMessage("Must provide a valid email")
     .custom(async (email) => {
-      const user = await getSingleUser({ email });
+      const user = await getSingleUser(email);
       if (!user) {
         throw new Error("Email not found!");
+      }
+    }),
+  checkEmailExists: check("email")
+    .trim()
+    .normalizeEmail()
+    .isEmail()
+    .withMessage("Email already exists")
+    .custom(async (email) => {
+      const user = await getSingleUser(email);
+      if (user) {
+        throw new Error("Email already exists");
       }
     }),
 
   requireValidPasswordForUser: check("password")
     .trim()
     .custom(async (password, { req }) => {
-      const user = await getSingleUser({ email: req.body.email });
+      const email = req.body.email;
+      //console.log(req.body);
+      const user = await getSingleUser(email);
 
       if (!user) {
         throw new Error("Invalid Password");
       }
-      const validPassword = await usersRepo.comparePasswords(
-        user.password,
-        password
-      ); // returns a boolean value
+      const validPassword = await comparePasswords(user.password, password); // returns a boolean value
 
       if (!validPassword) {
         throw new Error("Invalid Password");

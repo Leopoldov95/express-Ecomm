@@ -1,11 +1,6 @@
 const layout = require("../adminLayout");
 const { handleError } = require("../../error");
-//const { getError } = require("../../helpers");
-//{errors}
-/* 
-${getError(errors, "email")}
-${getError(errors, "password")}
-*/
+
 // again recall that unless an argument with the name {error} is passed, nothing will be executed
 module.exports = ({ errors }) => {
   return layout({
