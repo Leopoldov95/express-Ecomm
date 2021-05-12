@@ -16,6 +16,8 @@ const home = require("./routes/home");
 const products = require("./routes/products");
 const auth = require("./routes/admin/auth");
 const adminProducts = require("./routes/admin/products");
+
+const unkown = require("./views/404");
 // at some point will nee to setup multer and install POSTMAN
 
 // cookie session - this is need in order to store and use sessions, such as keeping track if a user is logged in or not
@@ -32,7 +34,7 @@ app.use(auth);
 app.use(adminProducts);
 // handle unkown routes here
 app.get("*", (req, res) => {
-  res.status(404).send("404 NOT FOUND");
+  res.status(404).send(unkown());
 });
 
 app.listen(5000, () => {

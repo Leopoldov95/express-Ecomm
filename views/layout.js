@@ -1,4 +1,4 @@
-module.exports = ({ content }) => {
+module.exports = ({ content, script }) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -60,7 +60,9 @@ module.exports = ({ content }) => {
   } else {
     x.style.display = "block";
   }
-  }
+  };
+
+  ${script}
   </script>
 </html>
       `;

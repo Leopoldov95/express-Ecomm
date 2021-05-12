@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "email": "admin@admin.com",
+    "password": "e7668f74c2e59ef6a41deebce8b542afe175087227d8b26f26d0cd260b6047bc9160821305bcd2f33243fb5f2deaea53b170e4c63c5611f8cb6a6d581385475e.3c9af7a477f2f927",
+    "id": "fa94105e-e76a-4c5e-989c-5c77b8d38cfe"
+  },
+  {
+    "email": "test@test.com",
+    "password": "b7982bca43eb28057d0cba81db9992ae4b0b79941316d3c49e769fdb27ab109ff4d4d2e00b369ef03e397ee0ec39a687651e13d0111fbc8259132095407e2167.e9bd457c4371ebb5",
+    "id": "7f9bfc9a-0ac4-470b-a543-d3cc257eebfb"
+  },
+  {
+    "email": "hello@hello.com",
+    "password": "07e3af98ea14a864f25a27ccf8ac65e9fe5d258b61e5af1bdb3644727e8ac8d8bc3cdf2529f4bded08eb4bfd0b35406966ed1d586b16de729011e280a279ccdd.f966502e929caf79",
+    "id": "a63f089c-36ef-46f3-888f-e1b022142c5d"
+  },
+  {
+    "email": "world@world.com",
+    "password": "e52703681186f86b3cae1fef28b126102c12df903e582878a821b48298a1e78b7173a14788901453ae35d56a2792f30cfe6382601045aa4ffabcca667dc0c7db.25b7ffb4f85f5d92",
+    "id": "57dd164e-a935-4a0e-8ee6-9e7ef61ce243"
+  },
+  {
+    "email": "bs@bs.com",
+    "password": "c6436e68b41faaef7dc1bda7a1b0d394525fb94cde53395ecfe7f029ba98c417e1d417e9da6689dc32c45eb98d94d0b2f195af22e1e3a8a67db89886918283ab.e5bd410b0b914562",
+    "id": "7a3a43ee-3c53-47c6-b255-62ec039a7d7c"
+  },
+  {
+    "email": "mario@mario.com",
+    "password": "a02038814a47434dfb73e160746f08bfe40f9463f807a229ad06c5299528c57a8afe51a7fb762ffcb80e6a1a16a0ae52012144141210bb3b724c01f959faaeb0.5351213b2059884b",
+    "id": "e31a5dd0-c2c7-47f6-ba04-8ee98b6c6601"
+  },
+  {
+    "email": "egg@egg.com",
+    "password": "c0e9be491f30f34037a0af6a26fb5024cdade2eb112b04f242c11792113137c3a8f657a44f6f48ce427fdee497cd9ad153d6f1eb7ac0279f3458e24cdde96531.aeed1f1a7f33d314",
+    "id": "557e3964-1393-4068-9b9c-f49c17077852"
+  },
+  {
+    "email": "pig@pig.com",
+    "password": "2e4562af7780c8884a50852ba55639c9629434fe143b8ae022257fcd1e57cbeba5ef354cae035791f6b5d1e11ca4926cd24cb4478a37f4d4220adeece55bd672.84a0382fb3bf1995",
+    "id": "e5223104-e10f-468a-81f8-f87b73f9bca2"
+  }
+]

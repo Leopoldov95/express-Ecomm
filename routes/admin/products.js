@@ -111,6 +111,11 @@ router.post(
   "/admin/products/:id/edit",
   requireAuth,
   upload.single("image"),
+  [requireTitle, requirePrice],
+  handleErrors(editProductView, async (req) => {
+    const product = await getSingleItem(req.params.id);
+    return { product };
+  }),
   async (req, res) => {
     const changes = req.body;
     if (req.file) {
@@ -121,7 +126,7 @@ router.post(
     try {
       await updateItem(req.params.id, changes);
     } catch (err) {
-      return res.send("Could not fid item...");
+      return res.send("Could not find item...");
     }
 
     //console.log(item.title);

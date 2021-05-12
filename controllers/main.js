@@ -32,20 +32,22 @@ const getSingleItem = async (id) => {
 };
 
 const updateItem = async (id, body) => {
-  const item = await getSingleItem(id);
+  //const item = await getSingleItem(id);
   const allItems = await getAllItems();
+  const item = allItems.find((product) => product.id === id);
 
   if (!item) {
     throw new Error(`Item ${id} not found...`);
   }
   Object.assign(item, body); // this creates a new object
 
-  //console.log(item.title, item.price);
-  //console.log(item);
   // so in order to successfuly write/edit a singl item need to first get all the items, change the specific one, then write the whole darn thing to the json file
-  fs.promises.writeFile("products.json", JSON.stringify(allItems, null, 2));
+  await fs.promises.writeFile(
+    "products.json",
+    JSON.stringify(allItems, null, 2)
+  );
   // console.log(item.title);
-  return item;
+  //return item;
 };
 
 //const update =

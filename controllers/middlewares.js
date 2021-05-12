@@ -16,7 +16,7 @@ const handleErrors = (template, cb) => {
     if (!errors.isEmpty()) {
       let data = {}; // so if no errors are present, this will initiate an empty object, in which our successful data will be passed onto.
       if (cb) {
-        data = await cd(req);
+        data = await cb(req);
       }
       return res.send(template({ errors, ...data }));
     }

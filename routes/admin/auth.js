@@ -35,6 +35,9 @@ router.post(
   }
 );
 router.get("/login", (req, res) => {
+  if (req.session.userId) {
+    res.redirect("/admin/products");
+  }
   res.send(viewLogin({})); //need to pass an empty object to satisfy the { errors } argument
 });
 router.get("/signup", (req, res) => {
@@ -55,8 +58,11 @@ router.post(
     //console.log(req.body);
     const user = await createUser(req.body);
     //const user = await getSingleUser(req.body.email);
+    //const user = await getSingleUser(req.body.email);
+
     req.session.userId = user.id;
-    res.redirect("/admin/products");
+    // for some unkown reason, this only works when online, redirect failed during offline testing...
+    return res.redirect(307, "/admin/products");
   }
 );
 

@@ -228,3 +228,18 @@ button:hover {
   color: var(--nav-color);
   padding-right: 10px;
 }
+
+/* 404 PAGE */
+
+#unkown {
+  display: flex;
+  height: var(--full-height);
+  justify-content: center;
+  align-items: center;
+}
+
+#unkown .search-unkown {
+  font-size: 3rem;
+  padding-left: 1.2rem;
+  color: var(--nav-color);
+}
