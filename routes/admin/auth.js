@@ -31,7 +31,7 @@ router.post(
     const user = await getSingleUser(req.body.email);
     req.session.userId = user.id;
     //console.log(req.body);
-    res.redirect("/admin/products");
+    return res.redirect("/admin/products");
   }
 );
 router.get("/login", (req, res) => {
@@ -53,16 +53,16 @@ router.post(
     requirePasswordConfirmation,
   ],
   handleErrors(viewSignup),
+
   async (req, res) => {
     // post the req.body to users.json
     //console.log(req.body);
     const user = await createUser(req.body);
-    //const user = await getSingleUser(req.body.email);
-    //const user = await getSingleUser(req.body.email);
 
     req.session.userId = user.id;
+    //req.session.userId = "test123";
     // for some unkown reason, this only works when online, redirect failed during offline testing...
-    res.redirect("/admin/products");
+    return res.redirect("/admin/products");
   }
 );
 

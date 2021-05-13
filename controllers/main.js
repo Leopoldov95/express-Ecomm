@@ -14,7 +14,8 @@ const addProduct = async (item, file = "products.json") => {
   let data = JSON.parse(rawData);
   //console.log(item);
   data.push(item);
-  fs.promises.writeFile(file, JSON.stringify(data, null, 2));
+  await fs.promises.writeFile(file, JSON.stringify(data, null, 2));
+  return item;
 };
 
 // get all the items and then use the result to render each indiviual display card
@@ -27,14 +28,14 @@ const getAllItems = async (file = "products.json") => {
   );
 };
 
-const getSingleItem = async (id) => {
-  const allItems = await getAllItems();
+const getSingleItem = async (id, file = "products.json") => {
+  const allItems = await getAllItems(file);
   return allItems.find((item) => item.id === id);
 };
 
 const updateItem = async (id, body, file = "products.json") => {
   //const item = await getSingleItem(id);
-  const allItems = await getAllItems();
+  const allItems = await getAllItems(file);
   const item = allItems.find((product) => product.id === id);
 
   if (!item) {
@@ -48,5 +49,21 @@ const updateItem = async (id, body, file = "products.json") => {
   //return item;
 };
 
+const deleteItem = async (id) => {
+  const items = await getAllItems();
+  const filteredItems = items.filter((item) => item.id !== id);
+
+  await fs.promises.writeFile(
+    "products.json",
+    JSON.stringify(filteredItems, null, 2)
+  );
+};
+
 //const update =
-module.exports = { addProduct, getAllItems, getSingleItem, updateItem };
+module.exports = {
+  addProduct,
+  getAllItems,
+  getSingleItem,
+  updateItem,
+  deleteItem,
+};

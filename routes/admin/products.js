@@ -13,6 +13,7 @@ const {
   addProduct,
   getSingleItem,
   updateItem,
+  deleteItem,
 } = require("../../controllers/main");
 const { requireTitle, requirePrice } = require("./validation");
 
@@ -57,7 +58,7 @@ const checkFileType = (file, cb) => {
     cb("Error: Images only!");
   }
 };
-
+// everything works with the GET request
 router.get("/admin/products", requireAuth, async (req, res) => {
   const products = await getAllItems();
   res.send(adminProductView({ products }));
@@ -134,4 +135,10 @@ router.post(
     res.redirect("/admin/products");
   }
 );
+
+router.post("/admin/products/:id/delete", async (req, res) => {
+  await deleteItem(req.params.id);
+
+  return res.redirect("/admin/products");
+});
 module.exports = router;

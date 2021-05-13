@@ -96,6 +96,7 @@ button:hover {
 
 #home h1 {
   margin: 2rem 0;
+  padding: 2rem;
   font-size: 3.5rem;
   color: white;
 }
@@ -259,6 +260,7 @@ button:hover {
 #cart .cart-items .cart-item {
   display: flex;
   justify-content: space-between;
+  margin: 1rem 0;
   padding: 1.3rem 1rem;
   align-items: center;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),

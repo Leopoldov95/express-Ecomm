@@ -15,10 +15,10 @@ module.exports = ({ items }) => {
           </div>
           <div class="cart-item-price">
             <div>
-              <p>${item.product.price} X ${item.quantity} = </p>
+              <p>$${item.product.price} X ${item.quantity} = </p>
             </div>
             <div>
-              <h2>${item.product.price * item.quantity}</h2>
+              <h2>$${item.product.price * item.quantity}</h2>
             </div>
             <div>
             <form method="POST" action="/cart/products/delete">
@@ -48,7 +48,7 @@ module.exports = ({ items }) => {
           <h2>Total</h2>
         </div>
         <div>
-          <h1>${totalPrice}</h1>
+          <h1>$${totalPrice}</h1>
           <button>Buy</button>
         </div>
       </div>

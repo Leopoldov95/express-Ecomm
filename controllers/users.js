@@ -16,8 +16,10 @@ const createUser = async (user) => {
   //const records = await getAllUsers();
 
   // need to parse the data
-  let rawData = await fs.promises.readFile("users.json");
-  let data = JSON.parse(rawData);
+  //let rawData = await fs.promises.readFile("users.json");
+  let data = JSON.parse(
+    await fs.promises.readFile("users.json", { encoding: "utf8" })
+  );
   const newUser = {
     email: user.email,
     password: `${buffer.toString("hex")}.${salt}`,

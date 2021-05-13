@@ -1,11 +1,17 @@
 /* TABLET VIEW */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 855px) {
   .navbar .navbar-mid {
     display: none;
   }
 
   #home h1 {
     font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .home-brand {
+    display: none;
   }
 }
 /* MOBILE DEVICES */
@@ -126,10 +132,6 @@
     align-items: center;
   }
 
-  .home-brand {
-    display: none;
-  }
-
   .mobile-nav a.icon {
     background: #333;
     display: block;
@@ -145,5 +147,14 @@
   .active {
     background-color: #04aa6d;
     color: white;
+  }
+
+  /* SHOPPING CART */
+  #cart {
+    width: 95%;
+  }
+
+  #cart .cart-total {
+    width: 90%;
   }
 }
