@@ -64,14 +64,15 @@ router.get("/admin/products", requireAuth, async (req, res) => {
 });
 
 router.get("/admin/products/new", requireAuth, (req, res) => {
-  res.send(newProductView());
+  res.send(newProductView({}));
 });
 
 router.post(
   "/admin/products/new",
   requireAuth,
-  [requireTitle, requirePrice],
   upload.single("image"),
+  [requireTitle, requirePrice],
+
   handleErrors(newProductView),
   async (req, res) => {
     //res.send("you have created a new item");

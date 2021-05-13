@@ -1,6 +1,3 @@
-1 - enable user to register and check for duplicate emails
-2 - learn how to display error messages (msg) without crashing
-2 - append registration details to users.json
-* - store password in a secure fashion
-3 - allow user to login, with proper valiation
-4 - once this has been solved, add user validation
+1 - allow user to delete items
+2 - fix res.redirect issue (only present on some POST methods)
+3 - add shopping cart

@@ -62,7 +62,7 @@ router.post(
 
     req.session.userId = user.id;
     // for some unkown reason, this only works when online, redirect failed during offline testing...
-    return res.redirect(307, "/admin/products");
+    res.redirect("/admin/products");
   }
 );
 

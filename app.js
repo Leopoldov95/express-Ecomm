@@ -16,7 +16,7 @@ const home = require("./routes/home");
 const products = require("./routes/products");
 const auth = require("./routes/admin/auth");
 const adminProducts = require("./routes/admin/products");
-
+const cart = require("./routes/cart");
 const unkown = require("./views/404");
 // at some point will nee to setup multer and install POSTMAN
 
@@ -30,6 +30,7 @@ app.use(
 // our routes
 app.use(home);
 app.use(products);
+app.use(cart);
 app.use(auth);
 app.use(adminProducts);
 // handle unkown routes here
