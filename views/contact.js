@@ -30,7 +30,7 @@ module.exports = () => {
             class="form-text"
             type="email"
             name="email"
-            placeholder="Your Email Adress"
+            placeholder="Your Email Address"
           />
         </div>
         <textarea

@@ -19,7 +19,7 @@ module.exports = ({ content }) => {
     <nav class="navbar">
       <div class="mobile-nav">
       <div>
-      <i class="fas fa-bicycle"></i><span >Rydel's Cycles</span></div>
+      <i class="fas fa-bicycle"></i><span >Leo's Cycles</span></div>
       <a href="#" class="icon" onclick="toggleNav()">
       <i class="fa fa-bars"></i>
     </a>
@@ -28,7 +28,7 @@ module.exports = ({ content }) => {
       <div class="navbar-left">
         <ul>
           <i class="fas fa-bicycle  home-brand"></i
-          ><span class="home-brand">Rydel's Cycles</span>
+          ><span class="home-brand">Leo's Cycles</span>
           <a href="/" class="navbar-link"><li>Home</li></a>
           <a href="/bikes" class="navbar-link"><li>Bikes</li></a>
           <a href="/contact" class="navbar-link"><li>Contact</li></a>

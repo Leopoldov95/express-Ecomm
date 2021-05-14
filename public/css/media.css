@@ -35,12 +35,16 @@
 
   /* CONTACT PAGE */
   #contact {
-    margin-top: 1rem;
+    margin-top: 3rem;
     padding: 1rem;
   }
 
   #contact .contact-form {
     width: 100%;
+  }
+
+  #contact .contact-form input[type="email"] {
+    width: 80%;
   }
 
   /* ADMIN NAVBAR */
