@@ -1,6 +1,8 @@
 const express = require("express");
 const cookieSession = require("cookie-session");
 const app = express();
+
+const env = process.env.PORT || 3000;
 // static assets
 
 app.use(express.static("public"));
@@ -38,6 +40,6 @@ app.get("*", (req, res) => {
   res.status(404).send(unkown());
 });
 
-app.listen(5000, () => {
-  console.log("server is listening at port 5000...");
+app.listen(env, () => {
+  console.log("server is listening at port 3000...");
 });
