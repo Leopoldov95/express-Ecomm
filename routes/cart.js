@@ -22,7 +22,7 @@ router.post("/cart/products", async (req, res) => {
       // we have a cart, lets get it from the repository
       cart = await getSingleItem(req.session.cartId, "cart.json");
     }
-
+    console.log(cart.items);
     const existingItem = cart.items.find(
       (item) => item.id === req.body.productId
     );
@@ -43,19 +43,23 @@ router.post("/cart/products", async (req, res) => {
 });
 
 router.get("/cart", async (req, res) => {
-  if (!req.session.cartId) {
-    return res.redirect("/");
+  try {
+    if (!req.session.cartId) {
+      return res.redirect("/");
+    }
+
+    const cart = await getSingleItem(req.session.cartId, "cart.json");
+
+    for (let item of cart.items) {
+      const product = await getSingleItem(item.id);
+
+      item.product = product;
+    }
+
+    res.send(viewCart({ items: cart.items }));
+  } catch (err) {
+    console.log(err);
   }
-
-  const cart = await getSingleItem(req.session.cartId, "cart.json");
-
-  for (let item of cart.items) {
-    const product = await getSingleItem(item.id);
-
-    item.product = product;
-  }
-
-  res.send(viewCart({ items: cart.items }));
 });
 
 router.post("/cart/products/delete", async (req, res) => {
