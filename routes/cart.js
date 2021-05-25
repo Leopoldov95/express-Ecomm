@@ -59,13 +59,17 @@ router.get("/cart", async (req, res) => {
 });
 
 router.post("/cart/products/delete", async (req, res) => {
-  const { itemId } = req.body;
-  const cart = await getSingleItem(req.session.cartId, "cart.json");
+  try {
+    const { itemId } = req.body;
+    const cart = await getSingleItem(req.session.cartId, "cart.json");
 
-  const items = cart.items.filter((item) => item.id !== itemId);
+    const items = cart.items.filter((item) => item.id !== itemId);
 
-  await updateItem(req.session.cartId, { items }, "cart.json");
+    await updateItem(req.session.cartId, { items }, "cart.json");
 
-  res.redirect("/cart");
+    res.redirect("/cart");
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;
