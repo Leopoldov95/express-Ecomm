@@ -21,11 +21,16 @@ const addProduct = async (item, file = "products.json") => {
 // get all the items and then use the result to render each indiviual display card
 // may want to add error handling
 const getAllItems = async (file = "products.json") => {
-  return JSON.parse(
-    await fs.promises.readFile(file, {
-      encoding: "utf8",
-    })
-  );
+  try {
+    return JSON.parse(
+      await fs.promises.readFile(file, {
+        encoding: "utf8",
+      })
+    );
+  } catch (error) {
+    res.status(error.response.status);
+    return res.send(error.message);
+  }
 };
 
 const getSingleItem = async (id, file = "products.json") => {
